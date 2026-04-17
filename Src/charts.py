@@ -1,13 +1,11 @@
 """Save exploratory figures for analyze.py (non-interactive backend)."""
-from pathlib import Path
-
-import matplotlib
-
-matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import pandas as pd
-
+import matplotlib
 from config import LAST_HIST_MONTH
+from pathlib import Path
+
+matplotlib.use("Agg")
 
 
 def _style_axes(ax, title: str, xlabel: str, ylabel: str) -> None:

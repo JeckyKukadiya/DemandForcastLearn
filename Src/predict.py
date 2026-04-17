@@ -1,6 +1,4 @@
 """Load trained model and write Data/submission.csv for TEST_MONTH."""
-from pathlib import Path
-
 import joblib
 import numpy as np
 
