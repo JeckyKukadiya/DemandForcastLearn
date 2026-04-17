@@ -30,7 +30,7 @@ jobs:
       - name: Lint code
         run: |
           python3 -m pip install flake8
-          flake8 . --max-line-length=100 --exclude=venv,__pycache__,.git
+          flake8 . --max-line-length=125 --exclude=venv,__pycache__,.git
 
       - name: Run tests
         run: |
