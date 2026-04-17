@@ -23,6 +23,7 @@ except Exception as e:
 def home():
     return {"status": "Model is running"}
 
+
 @app.post("/predict")
 def predict(data: list):
     prediction = model.predict([data])
