@@ -17,7 +17,8 @@ try:
 except Exception as e:
     print("Error loading model:", e)
     model = None
-    
+
+
 @app.get("/")
 def home():
     return {"status": "Model is running"}
