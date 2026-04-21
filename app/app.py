@@ -1,6 +1,8 @@
-from fastapi import FastAPI
-import joblib
 import os
+
+import joblib
+from fastapi import FastAPI
+from pydantic import BaseModel, Field
 
 app = FastAPI()
 
@@ -29,9 +31,13 @@ def home():
     return {"status": "Model is running"}
 
 
+class PredictBody(BaseModel):
+    data: list = Field(..., description="One row of feature values for the model")
+
+
 @app.post("/predict")
-def predict(data: list):
+def predict(body: PredictBody):
     if model is None:
         return {"error": "Model is not loaded on the server."}
-    prediction = model.predict([data])
+    prediction = model.predict([body.data])
     return {"prediction": prediction.tolist()}
