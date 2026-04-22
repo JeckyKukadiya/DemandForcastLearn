@@ -1,9 +1,8 @@
 name: Deploy to Render
 
-on:
+"on":
   push:
-    branches:
-      - main
+    branches: ["main"]
 
 jobs:
   deploy:
@@ -11,4 +10,4 @@ jobs:
 
     steps:
       - name: Trigger Render Deploy
-        run: curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK }}
+        run: curl -fsSL -X POST "${{ secrets.RENDER_DEPLOY_HOOK }}"
